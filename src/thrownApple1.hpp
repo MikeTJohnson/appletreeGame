@@ -29,7 +29,7 @@ private:
 public:
     
     
-    void appleLoaded () {
+    void thrownAppleLoaded () {
         if (!apple.loadFromFile("apple.png")) {
             std::cerr << "error while loading texture" << std::endl;
         }
@@ -38,15 +38,16 @@ public:
         }
     }
     
-    int getBounds() {
-        thrownApple.getLocalBounds();
+    void getBounds() {
+        
     }
 //    void buildTheApple () {
 //        appleLoaded();
 //        thrownApple.setTexture(apple);
 //    }
     
-    void throwTheApple (){
+    void throwTheApple () {
+        
         thrownApple.move(xvelocity, 0);
     }
     
