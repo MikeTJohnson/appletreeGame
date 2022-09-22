@@ -45,4 +45,6 @@ public:
     
     // assign spawn coordinates for the apple to one of the trees
     void spawnFallingApple (sf::Vector2f& spawnposition);
+    
+    sf::FloatRect fallingAppleGlobal ();
 };

@@ -26,7 +26,7 @@ void getBounds() {
 //    }
 
 void ThrownApple::throwTheApple () {
-    if (shotClock > 10)
+    if (shotClock > 10 && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     thrownAppleLoaded();
     setThrowPosition(thrownApplePosition);
     thrownApple.setPosition(thrownApplePosition);
@@ -52,8 +52,5 @@ void ThrownApple::drawThrownApple (sf::RenderWindow& window) {
     }
 }
 
-//void ThrownApple::removeThrownApple (sf::vector<sf::Sprite>& thrownApples) {
-////    if (collison) {
-//        thrownApples.erase(thrownApples.begin() + i);
-////    }
-//}
+
+

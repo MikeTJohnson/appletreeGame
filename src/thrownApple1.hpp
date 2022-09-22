@@ -51,5 +51,5 @@ public:
 
     
     void drawThrownApple (sf::RenderWindow& window);
+    
 };
-
