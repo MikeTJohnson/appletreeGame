@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 project(testappletreeGame)
-add_executable(testappletreeGame src/appletreeGame.cpp src/thrownApple1.cpp src/basket.cpp src/world.cpp src/fallingApple.cpp src/collisions.cpp src/thrownApple1.hpp src/basket.hpp src/world.hpp src/fallingApple.hpp src/collisions.hpp)
+add_executable(testappletreeGame src/appletreeGame.cpp src/thrownApple1.cpp src/basket.cpp src/world.cpp src/fallingApple.cpp src/collisions.cpp src/thrownApple1.hpp src/basket.hpp src/world.hpp src/fallingApple.hpp src/collisions.hpp src/squirrel.hpp src/squirrel.cpp)
 find_package(SFML 2.5 COMPONENTS graphics window system audio REQUIRED)
 target_link_libraries(testappletreeGame PRIVATE sfml-graphics sfml-system)
 target_compile_options(testappletreeGame PUBLIC -std=c++17)
