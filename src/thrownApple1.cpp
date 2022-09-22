@@ -35,9 +35,9 @@ void ThrownApple::throwTheApple () {
 
 
 
-void ThrownApple::setThrowPosition (sf::Vector2f& thrownApplePosition) {
-//        thrownApplePosition = basket::getBasketPosition();
-}
+//void ThrownApple::setThrowPosition (sf::Vector2f& thrownApplePosition) {
+////        thrownApplePosition = basket::getBasketPosition();
+//}
 
 
 void ThrownApple::drawThrownApple (sf::RenderWindow& window) {
@@ -51,8 +51,8 @@ void ThrownApple::drawThrownApple (sf::RenderWindow& window) {
     }
 }
 
-void ThrownApple::removeThrownApple (sf::vector<sf::Sprite>& thrownApples) {
-//    if (collison) {
-        thrownApples.erase(thrownApples.begin() + i);
-//    }
-}
+//void ThrownApple::removeThrownApple (sf::vector<sf::Sprite>& thrownApples) {
+////    if (collison) {
+//        thrownApples.erase(thrownApples.begin() + i);
+////    }
+//}

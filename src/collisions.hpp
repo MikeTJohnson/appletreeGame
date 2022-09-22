@@ -13,9 +13,9 @@ class Collision {
     
 public:
     
-    bool isColliding(sf::Sprite image1, sf::Sprite image2) {
-        if (image1.getGlobalBounds().intersects(image2.getGlobalBounds())) {
-            return true;
-        }
-    }
+//    bool isColliding(sf::Sprite image1, sf::Sprite image2) {
+//        if (image1.getGlobalBounds().intersects(image2.getGlobalBounds())) {
+//            return true;
+//        }
+//    }
 };
