@@ -6,6 +6,17 @@
 //
 //  Group members: Michael Johnson and Reshma Raghavan
 
+#include <iostream>
+#include <math.h>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
+
+#include "fallingApple.hpp"
+#include "thrownApple1.hpp"
+#include "collisions.hpp"
+#include "world.hpp"
+#include "basket.hpp"
 #include "squirrel.hpp"
 
 #include <iostream>
@@ -42,10 +53,17 @@ void Squirrel::drawSquirrel(sf::RenderWindow& window){
     window.draw(squirrelSprite);
 }
 
+sf::FloatRect Squirrel::getSquirrelGlobalBounds()
+{
+    return squirrelSprite.getGlobalBounds();
+}
+
 void Squirrel::moveSquirrel(){
 //    int spawnClock = 0;
 //    if (spawnClock > 2000){
 //
 //    }
 }
+
+
 

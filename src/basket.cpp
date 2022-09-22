@@ -6,9 +6,18 @@
 //
 //  Group members: Michael Johnson and Reshma Raghavan
 
-#include "basket.hpp"
-
 #include <iostream>
+#include <math.h>
+#include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
+
+#include "fallingApple.hpp"
+#include "thrownApple1.hpp"
+#include "collisions.hpp"
+#include "world.hpp"
+#include "basket.hpp"
+#include "squirrel.hpp"
 
 Basket::Basket()
 {
@@ -62,4 +71,18 @@ void Basket::drawBasket(sf::RenderWindow& window)
 sf::Vector2f Basket::getBasketPosition()
 {
     return basketPosition;
+}
+
+sf::FloatRect Basket::getBasketGlobalBounds()
+{
+    return basketSprite.getGlobalBounds();
+}
+
+bool Basket::basketSquirrelCollision(Squirrel& squirrel)
+{
+    if(getBasketGlobalBounds().intersects(squirrel.getSquirrelGlobalBounds())){
+        return true;
+    }
+    
+    return false;
 }
