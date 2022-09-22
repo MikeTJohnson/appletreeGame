@@ -21,15 +21,13 @@ private:
     sf::Sprite thrownApple;
     float xvelocity = -30.0;
     float yvelocity = 10;
+    std::vector<sf::Sprite> thrownApples;
+    sf::Vector2f thrownApplePosition;
     
 
 
 public:
     
-    std::vector<sf::Sprite> thrownApples;
-    sf::Vector2f thrownApplePosition;
-
-
     
     void appleLoaded () {
         if (!apple.loadFromFile("apple.png")) {
