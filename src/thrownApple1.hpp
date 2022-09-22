@@ -22,9 +22,9 @@ private:
     sf::Texture apple;
     sf::Sprite thrownApple;
     float xvelocity = -30.0;
-    float yvelocity = 10;
     std::vector<sf::Sprite> thrownApples;
     sf::Vector2f thrownApplePosition;
+    int shotClock = 0;
     
 
 
@@ -49,15 +49,31 @@ public:
 //    }
     
     void throwTheApple () {
-        thrownApple.move(xvelocity, 0);
-        
+        if (shotClock > 10);
+        thrownAppleLoaded();
+        setThrowPosition(thrownApplePosition);
+        thrownApple.setPosition(thrownApplePosition);
+        thrownApples.push_back(thrownApple);
+        shotClock = 0;
     }
     
+    
+    
+    void setThrowPosition (sf::Vector2f& thrownApplePosition) {
+//        thrownApplePosition = basket::getBasketPosition();
+        return thrownApplePosition;
+    }
 
     
     void drawThrownApple (sf::RenderWindow& window) {
-        window.draw(thrownApple);
-        
+        throwTheApple();
+        for (int i = 0; i < thrownApples.size(); i++) {
+            thrownApple.move(xvelocity, 0);
+            window.draw(thrownApple);
+            if (thrownApples[i].getPosition().y > 1280) {
+                thrownApples.erase(thrownApples.begin() + i);
+            }
+        }
     }
     
     
