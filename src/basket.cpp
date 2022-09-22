@@ -4,6 +4,7 @@
 //
 //  Created by Reshma Raghavan on 9/21/22.
 //
+//  Group members: Michael Johnson and Reshma Raghavan
 
 #include "basket.hpp"
 
@@ -11,13 +12,16 @@
 
 Basket::Basket()
 {
-    this->basket.loadFromFile("/Users/reshmaraghavan/Desktop/myGithubRepo/MSD/appletreeGame/FinalPictures/basket.png");
+    this->basket.loadFromFile("/Users/reshmaraghavan/Desktop/finalProject/appletreeGame/src/basket-new.png");
     
     this->basketSprite.setTexture(this->basket);
-    this->basketSprite.setPosition(150.f, 1150.f);
+    this->basketSprite.setPosition(150.f, 625.f);
     
+    // Update basketPosition to the correct position on screen
+    this->basketPosition.x = 150.f;
+    this->basketPosition.y = 625.f;
     
-    if(!basket.loadFromFile("/Users/reshmaraghavan/Desktop/myGithubRepo/MSD/appletreeGame/FinalPictures/basket.png")){
+    if(!basket.loadFromFile("/Users/reshmaraghavan/Desktop/finalProject/appletreeGame/src/basket-new.png")){
         std::cerr << "Error while loading texture" << std::endl;
     }
 }
@@ -34,22 +38,28 @@ void Basket::move(int winWidth)
             basketXVelocity *= -1;
         }
         basketPosition.x-=basketXVelocity;
-        basketPosition.y = 1150.f;
+        basketPosition.y = 623.f;
         basketSprite.setPosition(basketPosition);
     }
 
     //Keystroke D moves basket right
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
         //Make sure the basket stays within the bounds of the window
-        if (basketPosition.x > 2000 - 116){ //116 = basket width
+        if (basketPosition.x > 1150){
             basketXVelocity *= -1;
         }
         basketPosition.x+=basketXVelocity;
-        basketPosition.y = 1150.f;
+        basketPosition.y = 623.f;
         basketSprite.setPosition(basketPosition);
     }
 }
 
-void Basket::drawBasket(sf::RenderWindow& window){
+void Basket::drawBasket(sf::RenderWindow& window)
+{
     window.draw(basketSprite);
+}
+
+sf::Vector2f Basket::getBasketPosition()
+{
+    return basketPosition;
 }

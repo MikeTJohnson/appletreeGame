@@ -4,6 +4,7 @@
 //
 //  Created by Reshma Raghavan on 9/21/22.
 //
+//  Group members: Michael Johnson and Reshma Raghavan
 
 #pragma once
 
@@ -13,14 +14,15 @@
 
 #include "world.hpp"
 #include "basket.hpp"
+#include "squirrel.hpp"
 
 class World
 {
 public:
     World()
-    : window(sf::VideoMode(2000,2000), "Apple Tree Game")
+    : window(sf::VideoMode(1240,960), "Apple Tree Game")
     {
-        //reset();
+        
     }
     
     void loop();

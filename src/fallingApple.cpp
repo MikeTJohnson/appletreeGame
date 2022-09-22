@@ -4,6 +4,7 @@
 //
 //  Created by Michael Johnson on 9/21/22.
 //
+//  Group members: Michael Johnson and Reshma Raghavan
 
 #include "fallingApple.hpp"
 
@@ -15,7 +16,7 @@ void FallingApple::makeTheAppleFall (std::vector<sf::Sprite>& fallingApples){
 
 //check that the image for the sprite works and apply it to our object
 void FallingApple::fallingAppleLoaded () {
-    if (!fallingAppleTexture.loadFromFile("apple.png")) {
+    if (!fallingAppleTexture.loadFromFile("/Users/reshmaraghavan/Desktop/finalProject/appletreeGame/src/apple-new.png")) {
         std::cerr << "error while loading texture" << std::endl;
     }
     else {

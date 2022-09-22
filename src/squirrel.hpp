@@ -4,6 +4,7 @@
 //
 //  Created by Reshma Raghavan on 9/22/22.
 //
+//  Group members: Michael Johnson and Reshma Raghavan
 
 #pragma once
 
@@ -23,5 +24,9 @@ private:
 public:
     Squirrel();
     
+    Squirrel(float posOfSquirrelX, float posOfSquirrelY);
+    
     void drawSquirrel(sf::RenderWindow& window);
+    
+    void moveSquirrel();
 };

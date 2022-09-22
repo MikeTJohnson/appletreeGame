@@ -4,6 +4,7 @@
 //
 //  Created by Reshma Raghavan on 9/21/22.
 //
+//  Group members: Michael Johnson and Reshma Raghavan
 
 #pragma once
 
@@ -15,19 +16,20 @@ class Basket
 {
     
 private:
-    sf::Texture basket;
-    sf::Sprite basketSprite;
-    sf::Vector2f basketPosition;
+    sf::Texture basket; // Texture for the sprite
+    sf::Sprite basketSprite; // Sprite to work with
+    sf::Vector2f basketPosition; // Sprite's position
     
-    bool onScreen = false;
+    bool onScreen = false; // Determining whether or not it is on screen
     
 public:
     
     Basket();
-//    Basket(sf::Texture basket, sf::Sprite basketSprite, sf::Vector2f basketPosition);
     
     void move(int winWidth);
     void drawBasket(sf::RenderWindow& window);
+    
+    sf::Vector2f getBasketPosition();
     
 };
 
