@@ -12,6 +12,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
+#include "fallingApple.hpp"
+#include "thrownApple1.hpp"
 #include "collisions.hpp"
 #include "world.hpp"
 #include "basket.hpp"
