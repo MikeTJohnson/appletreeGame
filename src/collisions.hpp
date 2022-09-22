@@ -7,15 +7,9 @@
 //  Group members: Michael Johnson and Reshma Raghavan
 
 #pragma once
+#include "world.hpp"
+#include "fallingApple.hpp"
+#include "thrownApple1.hpp"
+#include <SFML/Graphics.hpp>
 
-class Collision {
-  
-    
-public:
-    
-//    bool isColliding(sf::Sprite image1, sf::Sprite image2) {
-//        if (image1.getGlobalBounds().intersects(image2.getGlobalBounds())) {
-//            return true;
-//        }
-//    }
-};
+

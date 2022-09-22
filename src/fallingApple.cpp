@@ -57,8 +57,8 @@ void FallingApple::drawFallingApple (sf::RenderWindow& window) {
 // assign the spawn coordinates for the apple on the left tree
 void FallingApple::spawnAppleLeft (sf::Vector2f& spawnPositionLeft) {
     std::srand(time(NULL));
-    spawnPositionLeft.x = rand()% 150 + 250;
-    spawnPositionLeft.y = rand()% 150 + 250;
+    spawnPositionLeft.x = rand()% 400 + 150;
+    spawnPositionLeft.y = rand()% 400 + 150;
     
 }
 
@@ -66,8 +66,8 @@ void FallingApple::spawnAppleLeft (sf::Vector2f& spawnPositionLeft) {
 // assign the spawn coordinates for the apple on the right tree
 void FallingApple::spawnAppleRight (sf::Vector2f& spawnPositionRight) {
     std::srand(time(NULL));
-    spawnPositionRight.x = rand()% 750 + 250;
-    spawnPositionRight.y = rand()% 75 + 675;
+    spawnPositionRight.x = rand()% 1000 + 750;
+    spawnPositionRight.y = rand()% 750 + 75;
 }
 
 
@@ -82,4 +82,8 @@ void FallingApple::spawnFallingApple (sf::Vector2f& spawnposition) {
         //if the random number is odd, the position is on the right tree
         spawnAppleRight(spawnposition);
     }
+}
+
+sf::FloatRect FallingApple::fallingAppleGlobal () {
+    return fallingApple.getGlobalBounds();
 }
