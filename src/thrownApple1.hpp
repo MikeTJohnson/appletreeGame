@@ -31,31 +31,17 @@ private:
 public:
     
     
-    void thrownAppleLoaded () {
-        if (!apple.loadFromFile("apple.png")) {
-            std::cerr << "error while loading texture" << std::endl;
-        }
-        else {
-            thrownApple.setTexture(apple);
-        }
-    }
+    void thrownAppleLoaded ();
     
-    void getBounds() {
-        
-    }
+//    void getBounds() {
+//
+//    }
 //    void buildTheApple () {
 //        appleLoaded();
 //        thrownApple.setTexture(apple);
 //    }
     
-    void throwTheApple () {
-        if (shotClock > 10)
-        thrownAppleLoaded();
-        setThrowPosition(thrownApplePosition);
-        thrownApple.setPosition(thrownApplePosition);
-        thrownApples.push_back(thrownApple);
-        shotClock = 0;
-    }
+    void throwTheApple ();
     
     
     
@@ -64,21 +50,6 @@ public:
     }
 
     
-    void drawThrownApple (sf::RenderWindow& window) {
-        throwTheApple();
-        for (int i = 0; i < thrownApples.size(); i++) {
-            thrownApple.move(xvelocity, 0);
-            window.draw(thrownApple);
-            if (thrownApples[i].getPosition().y > 1280) {
-                thrownApples.erase(thrownApples.begin() + i);
-            }
-        }
-    }
-    
-    
-    
-//    void draw (sf::RenderWindow &window){
-//        window.draw(thrownApples);
-//    }
+    void drawThrownApple (sf::RenderWindow& window);
 };
 
