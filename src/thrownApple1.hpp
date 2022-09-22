@@ -47,7 +47,7 @@ public:
 //    }
     
     void throwTheApple () {
-        if (shotClock > 10);
+        if (shotClock > 10)
         thrownAppleLoaded();
         setThrowPosition(thrownApplePosition);
         thrownApple.setPosition(thrownApplePosition);
@@ -59,7 +59,6 @@ public:
     
     void setThrowPosition (sf::Vector2f& thrownApplePosition) {
 //        thrownApplePosition = basket::getBasketPosition();
-        return thrownApplePosition;
     }
 
     
