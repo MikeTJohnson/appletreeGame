@@ -24,7 +24,9 @@ private:
 public:
     Squirrel();
     
+    Squirrel(float posOfSquirrelX, float posOfSquirrelY);
+    
     void drawSquirrel(sf::RenderWindow& window);
     
-    void moveSquirrel(Squirrel& squirrel);
+    void moveSquirrel();
 };

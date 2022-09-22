@@ -54,7 +54,8 @@ void Basket::move(int winWidth)
     }
 }
 
-void Basket::drawBasket(sf::RenderWindow& window){
+void Basket::drawBasket(sf::RenderWindow& window)
+{
     window.draw(basketSprite);
 }
 

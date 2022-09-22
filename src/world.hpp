@@ -22,7 +22,7 @@ public:
     World()
     : window(sf::VideoMode(1240,960), "Apple Tree Game")
     {
-        //reset();
+        
     }
     
     void loop();

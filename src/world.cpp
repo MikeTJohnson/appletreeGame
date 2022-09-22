@@ -34,6 +34,19 @@ void World::loop()
     Basket basket;
     
     Squirrel squirrel;
+
+    FallingApple appleFalling;
+    
+//    Squirrel squirrelPos1(150.f,150.f);
+//    Squirrel squirrelPos2(400.f,150.f);
+//    Squirrel squirrelPos3(150.f,400.f);
+//    Squirrel squirrelPos4(400.f,400.f);
+//
+//    Squirrel squirrelPos5(1000.f,400.f);
+//    Squirrel squirrelPos6(1000.f,75.f);
+//    Squirrel squirrelPos7(750.f,400.f);
+//    Squirrel squirrelPos8(750.f,75.f);
+
     
 //    sf::Texture basketTexture;
 //    basketTexture.loadFromFile("/Users/reshmaraghavan/Desktop/myGithubRepo/MSD/appletreeGame/FinalPictures/basket.png");
@@ -83,11 +96,17 @@ void World::loop()
         
         basket.move(800);
         
+        appleFalling.drawFallingApple(window);
+        
+//        squirrelPos1.drawSquirrel(window);
+//        squirrelPos2.drawSquirrel(window);
+//        squirrelPos3.drawSquirrel(window);
+//        squirrelPos4.drawSquirrel(window);
+//        squirrelPos5.drawSquirrel(window);
+//        squirrelPos6.drawSquirrel(window);
+//        squirrelPos7.drawSquirrel(window);
+//        squirrelPos8.drawSquirrel(window);
+//
         window.display();
     }
-}
-
-void World::reset()
-{
-    
 }
