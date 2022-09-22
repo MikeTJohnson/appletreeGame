@@ -47,14 +47,15 @@ public:
 //    }
     
     void throwTheApple () {
-        
         thrownApple.move(xvelocity, 0);
+        
     }
     
 
     
     void drawThrownApple (sf::RenderWindow& window) {
         window.draw(thrownApple);
+        
     }
     
     
