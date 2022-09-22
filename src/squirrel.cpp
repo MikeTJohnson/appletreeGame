@@ -4,6 +4,7 @@
 //
 //  Created by Reshma Raghavan on 9/22/22.
 //
+//  Group members: Michael Johnson and Reshma Raghavan
 
 #include "squirrel.hpp"
 
@@ -24,5 +25,12 @@ Squirrel::Squirrel()
 
 void Squirrel::drawSquirrel(sf::RenderWindow& window){
     window.draw(squirrelSprite);
+}
+
+void moveSquirrel(Squirrel& squirrel){
+    int spawnClock = 0;
+    if (spawnClock > 2000){
+        //squirrel.drawSquirrel(window);
+}
 }
 

@@ -17,6 +17,7 @@
 #include "collisions.hpp"
 #include "world.hpp"
 #include "basket.hpp"
+#include "squirrel.hpp"
 
 using namespace std;
 
