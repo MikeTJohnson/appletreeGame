@@ -7,6 +7,9 @@
 //  Group members: Michael Johnson and Reshma Raghavan
 
 #include "thrownApple1.hpp"
+#include "basket.hpp"
+
+Basket basket;
 
 void ThrownApple::thrownAppleLoaded () {
     if (!apple.loadFromFile("apple.png")) {
@@ -17,18 +20,10 @@ void ThrownApple::thrownAppleLoaded () {
     }
 }
 
-void getBounds() {
-    
-}
-//    void buildTheApple () {
-//        appleLoaded();
-//        thrownApple.setTexture(apple);
-//    }
 
 void ThrownApple::throwTheApple () {
-    if (shotClock > 10 && sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    if (shotClock > 10)
     thrownAppleLoaded();
-    setThrowPosition(thrownApplePosition);
     thrownApple.setPosition(thrownApplePosition);
     thrownApples.push_back(thrownApple);
     shotClock = 0;
@@ -36,9 +31,9 @@ void ThrownApple::throwTheApple () {
 
 
 
-//void ThrownApple::setThrowPosition (sf::Vector2f& thrownApplePosition) {
-////        thrownApplePosition = basket::getBasketPosition();
-//}
+void ThrownApple::setThrowPosition (sf::Vector2f& basketPosition) {
+        thrownApplePosition = basketPosition;
+}
 
 
 void ThrownApple::drawThrownApple (sf::RenderWindow& window) {
@@ -52,5 +47,13 @@ void ThrownApple::drawThrownApple (sf::RenderWindow& window) {
     }
 }
 
+void ThrownApple::destroyThrownApple () {
+    for (int i = 0; i < thrownApples.size(); i++) {
+            thrownApples.erase(thrownApples.begin() + i);
+    }
+}
 
+sf::FloatRect ThrownApple::getBounds() {
+    return thrownApple.getGlobalBounds();
+}
 

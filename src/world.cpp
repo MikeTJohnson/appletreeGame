@@ -93,8 +93,17 @@ void World::loop()
         
         appleFalling.drawFallingApple(window);
         
-        applethrown.throwTheApple();
         
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+            sf::Vector2f getPos = basket.getBasketPosition();
+            applethrown.setThrowPosition(getPos);
+            applethrown.throwTheApple();
+
+        }
+        
+        if (squirrel.getSquirrelGlobalBounds().intersects(applethrown.getBounds())) {
+            applethrown.destroyThrownApple();
+        }
         
         if(basket.basketSquirrelCollision(squirrel)){
             reset();

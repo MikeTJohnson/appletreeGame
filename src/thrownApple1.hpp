@@ -33,23 +33,19 @@ public:
     
     void thrownAppleLoaded ();
     
-//    void getBounds() {
-//
-//    }
-//    void buildTheApple () {
-//        appleLoaded();
-//        thrownApple.setTexture(apple);
-//    }
+    sf::FloatRect getBounds();
+
     
     void throwTheApple ();
     
     
     
-    void setThrowPosition (sf::Vector2f& thrownApplePosition) {
-//        thrownApplePosition = basket::getBasketPosition();
-    }
+    void setThrowPosition (sf::Vector2f& basketPosition);
 
     
     void drawThrownApple (sf::RenderWindow& window);
+    
+    void destroyThrownApple ();
+    
     
 };
