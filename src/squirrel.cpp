@@ -23,7 +23,7 @@
 Squirrel::Squirrel()
 {
 
-    this->squirrel.loadFromFile("/Users/reshmaraghavan/Desktop/finalProject/appletreeGame/src/squirrel-new.png");
+    this->squirrel.loadFromFile("../squirrel-new.png");
     
     this->squirrelSprite.setTexture(this->squirrel);
     this->squirrelSprite.setPosition(50.f, 625.f);
@@ -32,14 +32,14 @@ Squirrel::Squirrel()
     this->squirrelPosition.x = 50.f;
     this->squirrelPosition.y = 625.f;
     
-    if(!squirrel.loadFromFile("/Users/reshmaraghavan/Desktop/finalProject/appletreeGame/src/squirrel-new.png")){
+    if(!squirrel.loadFromFile("../squirrel-new.png")){
         std::cerr << "Error while loading texture" << std::endl;
     }
 }
 
 Squirrel::Squirrel(float posOfSquirrelX, float posOfSquirrelY)
 {
-    this->squirrel.loadFromFile("/Users/reshmaraghavan/Desktop/finalProject/appletreeGame/src/squirrel-new.png");
+    this->squirrel.loadFromFile("../squirrel-new.png");
     this->squirrelSprite.setTexture(this->squirrel);
     
     this->squirrelSprite.setPosition(posOfSquirrelX, posOfSquirrelY);

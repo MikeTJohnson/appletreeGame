@@ -16,7 +16,7 @@
 
 Basket::Basket()
 {
-    this->basket.loadFromFile("/Users/reshmaraghavan/Desktop/finalProject/appletreeGame/src/basket-new.png");
+    this->basket.loadFromFile("../basket-new.png");
     
     this->basketSprite.setTexture(this->basket);
     this->basketSprite.setPosition(150.f, 625.f);
@@ -25,7 +25,7 @@ Basket::Basket()
     this->basketPosition.x = 150.f;
     this->basketPosition.y = 625.f;
     
-    if(!basket.loadFromFile("/Users/reshmaraghavan/Desktop/finalProject/appletreeGame/src/basket-new.png")){
+    if(!basket.loadFromFile("../basket-new.png")){
         std::cerr << "Error while loading texture" << std::endl;
     }
 }
