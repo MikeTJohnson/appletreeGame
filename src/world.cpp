@@ -31,6 +31,7 @@ void World::loop()
     sf::Vector2u TextureSize;
     // Store window size
     sf::Vector2u WindowSize;
+    int shotClock = 0;
     int spawnClock = 0;
     Basket basket;
     
@@ -81,6 +82,9 @@ void World::loop()
         // Start the clock for the squirrel
         spawnClock++;
         
+        //start the clock for the time between apple throws
+        shotClock++;
+        
         // Draw the squirrel on the window
         squirrel.drawSquirrel(window);
         
@@ -100,11 +104,11 @@ void World::loop()
         appleFalling.drawFallingApple(window);
         
         
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && shotClock > 100){
             sf::Vector2f getPos = basket.getBasketPosition();
             applethrown.setThrowPosition(getPos);
-            applethrown.throwTheApple();
-
+            applethrown.drawThrownApple(window);
+            shotClock = 0;
         }
         
         if (squirrel.getSquirrelGlobalBounds().intersects(applethrown.getBounds())) {

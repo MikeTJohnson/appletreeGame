@@ -21,7 +21,7 @@ private:
     
     sf::Texture apple;
     sf::Sprite thrownApple;
-    float xvelocity = -30.0;
+    float xvelocity = -20.0;
     std::vector<sf::Sprite> thrownApples;
     sf::Vector2f thrownApplePosition;
     int shotClock = 0;

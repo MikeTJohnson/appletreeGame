@@ -22,11 +22,9 @@ void ThrownApple::thrownAppleLoaded () {
 
 
 void ThrownApple::throwTheApple () {
-    if (shotClock > 10)
     thrownAppleLoaded();
     thrownApple.setPosition(thrownApplePosition);
     thrownApples.push_back(thrownApple);
-    shotClock = 0;
 }
 
 
