@@ -6,6 +6,7 @@
 //
 //  Group members: Michael Johnson and Reshma Raghavan
 
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
@@ -14,14 +15,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include <random>
-#pragma once
+
 
 class ThrownApple {
 private:
     
     sf::Texture apple;
     sf::Sprite thrownApple;
-    float xvelocity = -20.0;
+    float xvelocity = -2.0;
     std::vector<sf::Sprite> thrownApples;
     sf::Vector2f thrownApplePosition;
     int shotClock = 0;
@@ -43,9 +44,9 @@ public:
     void setThrowPosition (sf::Vector2f& basketPosition);
 
     
-    void drawThrownApple (sf::RenderWindow& window);
+    void drawThrownApple (sf::RenderWindow& window, int& shotClock);
     
     void destroyThrownApple ();
     
-    
 };
+

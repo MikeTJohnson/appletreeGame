@@ -22,9 +22,9 @@ void ThrownApple::thrownAppleLoaded () {
 
 
 void ThrownApple::throwTheApple () {
-    thrownAppleLoaded();
-    thrownApple.setPosition(thrownApplePosition);
-    thrownApples.push_back(thrownApple);
+//    thrownAppleLoaded();
+//    thrownApple.setPosition(thrownApplePosition);
+//    thrownApples.push_back(thrownApple);
 }
 
 
@@ -34,14 +34,17 @@ void ThrownApple::setThrowPosition (sf::Vector2f& basketPosition) {
 }
 
 
-void ThrownApple::drawThrownApple (sf::RenderWindow& window) {
-    throwTheApple();
+void ThrownApple::drawThrownApple (sf::RenderWindow& window, int& shotClock) {
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && shotClock > 10){
+    shotClock = 0;
+    thrownAppleLoaded();
+    thrownApple.setPosition(thrownApplePosition);
+    thrownApples.push_back(thrownApple);
+//    throwTheApple();
+    }
     for (int i = 0; i < thrownApples.size(); i++) {
-        thrownApple.move(xvelocity, 0);
-        window.draw(thrownApple);
-        if (thrownApples[i].getPosition().y > 1280) {
-            thrownApples.erase(thrownApples.begin() + i);
-        }
+        thrownApples[i].move(xvelocity, 0);
+        window.draw(thrownApples[i]);
     }
 }
 
@@ -52,6 +55,6 @@ void ThrownApple::destroyThrownApple () {
 }
 
 sf::FloatRect ThrownApple::getBounds() {
-    return thrownApple.getGlobalBounds();
+    for (int i = 0; i < thrownApples.size(); i++)
+    return thrownApples[i].getGlobalBounds();
 }
-

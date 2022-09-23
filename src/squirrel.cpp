@@ -20,6 +20,9 @@
 
 #include <iostream>
 
+Squirrel::~Squirrel(){
+}
+
 Squirrel::Squirrel()
 {
 
@@ -62,6 +65,16 @@ void Squirrel::moveSquirrel(){
         squirrelSprite.move(3, 0);
     }
 
+bool Squirrel::squirrelThrownAppleCollision (ThrownApple& appleThrown) {
+    if (getSquirrelGlobalBounds().intersects(appleThrown.getBounds())){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
-
-
+void Squirrel::resetSquirrelPosition () {
+    squirrelSprite.setPosition(50.f, 625.f);
+    squirrelSprite.move(0,0);
+}

@@ -81,14 +81,11 @@ void World::loop()
         
         // Start the clock for the squirrel
         spawnClock++;
-        
-        //start the clock for the time between apple throws
         shotClock++;
-        
         // Draw the squirrel on the window
         squirrel.drawSquirrel(window);
         
-        if (spawnClock > 1000) {
+        if (spawnClock > 100) {
             // Move the squirrel once the clock exceeds 1000
             squirrel.moveSquirrel();
         }
@@ -104,16 +101,14 @@ void World::loop()
         appleFalling.drawFallingApple(window);
         
         
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && shotClock > 100){
-            sf::Vector2f getPos = basket.getBasketPosition();
-            applethrown.setThrowPosition(getPos);
-            applethrown.drawThrownApple(window);
-            shotClock = 0;
-        }
+        sf::Vector2f getPos = basket.getBasketPosition();
+        applethrown.setThrowPosition(getPos);
+        applethrown.drawThrownApple(window, shotClock);
         
-        if (squirrel.getSquirrelGlobalBounds().intersects(applethrown.getBounds())) {
-            applethrown.destroyThrownApple();
-        }
+        
+//        if (squirrel.getSquirrelGlobalBounds().intersects(applethrown.getBounds())) {
+//            applethrown.destroyThrownApple();
+//        }
         
         if(basket.basketSquirrelCollision(squirrel)){
             reset();
@@ -121,6 +116,11 @@ void World::loop()
         
         if(appleFalling.fallingAppleBasketCollision(basket)){
             appleFalling.destroyFallingAppleOnCollision();
+        }
+        
+        if (squirrel.squirrelThrownAppleCollision(applethrown)) {
+            squirrel.resetSquirrelPosition();
+            spawnClock = 0;
         }
         
 //        squirrelPos1.drawSquirrel(window);

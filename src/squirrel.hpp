@@ -27,7 +27,10 @@ private:
     sf::Vector2f squirrelPosition;
     bool onScreen = false;
     
+    
 public:
+    ~Squirrel();
+    
     Squirrel();
     
     Squirrel(float posOfSquirrelX, float posOfSquirrelY);
@@ -37,4 +40,10 @@ public:
     sf::FloatRect getSquirrelGlobalBounds();
     
     void moveSquirrel();
+    
+    
+    bool squirrelThrownAppleCollision (ThrownApple& appleThrown);
+    
+    void resetSquirrelPosition ();
+
 };
