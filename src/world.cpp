@@ -22,14 +22,14 @@ void World::loop()
 {
     window.setFramerateLimit(60);
     
-    // create a texture for the background
+    // Create a texture for the background
     sf::Texture bgTexture;
-    // create a sprite for the background
+    // Create a sprite for the background
     sf::Sprite bgSprite;
     
-    // store bgTexture size
+    // Store bgTexture size
     sf::Vector2u TextureSize;
-    // store window size
+    // Store window size
     sf::Vector2u WindowSize;
     int spawnClock = 0;
     Basket basket;
@@ -50,7 +50,7 @@ void World::loop()
 //    Squirrel squirrelPos7(750.f,400.f);
 //    Squirrel squirrelPos8(750.f,75.f);
     
-    if(!bgTexture.loadFromFile("/Users/reshmaraghavan/Desktop/finalProject/appletreeGame/src/background-new.png")){
+    if(!bgTexture.loadFromFile("../background-new.png")){
         std::cerr << "Error while loading texture" << std::endl;
     }
     else{
@@ -61,7 +61,7 @@ void World::loop()
         float ScaleX = (float) WindowSize.x / TextureSize.x;
         float ScaleY = (float) WindowSize.y / TextureSize.y;
         
-        // Set scale
+        // Set bgSprite scale based on window size
         bgSprite.setTexture(bgTexture);
         bgSprite.setScale(ScaleX, ScaleY);
     }
@@ -70,27 +70,33 @@ void World::loop()
     {
         sf::Event event;
         while(window.pollEvent(event)){
+            // Command to close window
             if (event.type == sf::Event::Closed){
                 window.close();
             }
-            
-            
         }
         window.clear(sf::Color::Black);
         window.draw(bgSprite);
-
+        
+        // Start the clock for the squirrel
         spawnClock++;
         
+        // Draw the squirrel on the window
         squirrel.drawSquirrel(window);
         
         if (spawnClock > 1000) {
+            // Move the squirrel once the clock exceeds 1000
             squirrel.moveSquirrel();
         }
         
+        // Draw the basket on the window
         basket.drawBasket(window);
         
+        // Move the basket using keys A and D
         basket.move(800);
         
+        // Create apples on screen that fall from the
+        // trees' canopies
         appleFalling.drawFallingApple(window);
         
         applethrown.throwTheApple();

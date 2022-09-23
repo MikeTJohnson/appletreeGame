@@ -9,7 +9,7 @@
 #include "thrownApple1.hpp"
 
 void ThrownApple::thrownAppleLoaded () {
-    if (!apple.loadFromFile("apple.png")) {
+    if (!apple.loadFromFile("../apple-new.png")) {
         std::cerr << "error while loading texture" << std::endl;
     }
     else {

@@ -20,24 +20,23 @@
 
 class World
 {
+    
 public:
+    // Creates a window which displays the game
     World()
     : window(sf::VideoMode(1240,960), "Apple Tree Game")
     {
         
     }
-    
+    // Runs the game in the window
     void loop();
     
 private:
-    void draw();
-    void moveBasket();
     
+    // Starts the game back again
     void reset();
     
-    void throwApple();
-    void fallApple();
-    void handleCollisions();
-    
+    // Member variable to be referenced
     sf::RenderWindow window;
+
 };
