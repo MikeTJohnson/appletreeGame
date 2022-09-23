@@ -14,7 +14,6 @@
 
 #include "fallingApple.hpp"
 #include "thrownApple1.hpp"
-#include "collisions.hpp"
 #include "world.hpp"
 #include "basket.hpp"
 #include "squirrel.hpp"
@@ -23,6 +22,7 @@
 
 Squirrel::Squirrel()
 {
+
     this->squirrel.loadFromFile("/Users/reshmaraghavan/Desktop/finalProject/appletreeGame/src/squirrel-new.png");
     
     this->squirrelSprite.setTexture(this->squirrel);
@@ -59,11 +59,9 @@ sf::FloatRect Squirrel::getSquirrelGlobalBounds()
 }
 
 void Squirrel::moveSquirrel(){
-//    int spawnClock = 0;
-//    if (spawnClock > 2000){
-//
-//    }
-}
+        squirrelSprite.move(3, 0);
+    }
+
 
 
 

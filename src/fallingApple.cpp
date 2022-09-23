@@ -7,6 +7,7 @@
 //  Group members: Michael Johnson and Reshma Raghavan
 
 #include "fallingApple.hpp"
+#include "basket.hpp"
 
 //make the apple fall from the tree
 void FallingApple::makeTheAppleFall (std::vector<sf::Sprite>& fallingApples){
@@ -48,9 +49,21 @@ void FallingApple::drawFallingApple (sf::RenderWindow& window) {
     for (int i = 0; i < fallingApples.size(); i++) {
         fallingApples[i].move(0, yvelocity);
         window.draw(fallingApples[i]);
+        destroyFallingApple();
+    }
+}
+
+void FallingApple::destroyFallingApple() {
+    for (int i = 0; i < fallingApples.size(); i++) {
         if (fallingApples[i].getPosition().y > 960) {
             fallingApples.erase(fallingApples.begin() + i);
         }
+    }
+}
+
+void FallingApple::destroyFallingAppleOnCollision() {
+    for (int i = 0; i < fallingApples.size(); i++) {
+            fallingApples.erase(fallingApples.begin() + i);
     }
 }
 
@@ -86,5 +99,15 @@ void FallingApple::spawnFallingApple (sf::Vector2f& spawnposition) {
 }
 
 sf::FloatRect FallingApple::fallingAppleGlobal () {
-    return fallingApple.getGlobalBounds();
+    for (int i = 0; i < fallingApples.size(); i++)
+    return fallingApples[i].getGlobalBounds();
+}
+
+bool FallingApple::fallingAppleBasketCollision(Basket& basket)
+{
+    if(fallingAppleGlobal().intersects(basket.getBasketGlobalBounds())){
+        return true;
+    }
+    
+    return false;
 }

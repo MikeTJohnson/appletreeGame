@@ -6,10 +6,13 @@
 //
 //  Group members: Michael Johnson and Reshma Raghavan
 
-#include "thrownApple1.hpp"
 #pragma once
 
-class FallingApple {
+#include "thrownApple1.hpp"
+#include "basket.hpp"
+
+class FallingApple
+{
 private:
     
     sf::Texture fallingAppleTexture;
@@ -47,4 +50,11 @@ public:
     void spawnFallingApple (sf::Vector2f& spawnposition);
     
     sf::FloatRect fallingAppleGlobal ();
+    
+    bool fallingAppleBasketCollision(Basket& basket);
+    
+    void destroyFallingApple ();
+    
+    void destroyFallingAppleOnCollision();
+
 };

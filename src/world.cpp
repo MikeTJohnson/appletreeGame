@@ -14,7 +14,6 @@
 
 #include "fallingApple.hpp"
 #include "thrownApple1.hpp"
-#include "collisions.hpp"
 #include "world.hpp"
 #include "basket.hpp"
 #include "squirrel.hpp"
@@ -32,12 +31,14 @@ void World::loop()
     sf::Vector2u TextureSize;
     // store window size
     sf::Vector2u WindowSize;
-    
+    int spawnClock = 0;
     Basket basket;
     
     Squirrel squirrel;
 
     FallingApple appleFalling;
+    
+    ThrownApple applethrown;
     
 //    Squirrel squirrelPos1(150.f,150.f);
 //    Squirrel squirrelPos2(400.f,150.f);
@@ -77,14 +78,14 @@ void World::loop()
         }
         window.clear(sf::Color::Black);
         window.draw(bgSprite);
-       // Basket basket(basketTexture, basketSprite, basketPosition);
-      //  basket.move(2000);
-        
-       // window.draw(basketSprite);
-        
-        //handleCollisions();
+
+        spawnClock++;
         
         squirrel.drawSquirrel(window);
+        
+        if (spawnClock > 1000) {
+            squirrel.moveSquirrel();
+        }
         
         basket.drawBasket(window);
         
@@ -92,8 +93,15 @@ void World::loop()
         
         appleFalling.drawFallingApple(window);
         
+        applethrown.throwTheApple();
+        
+        
         if(basket.basketSquirrelCollision(squirrel)){
             reset();
+        }
+        
+        if(appleFalling.fallingAppleBasketCollision(basket)){
+            appleFalling.destroyFallingAppleOnCollision();
         }
         
 //        squirrelPos1.drawSquirrel(window);

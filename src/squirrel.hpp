@@ -14,9 +14,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 
-#include "fallingApple.hpp"
 #include "thrownApple1.hpp"
-#include "collisions.hpp"
 #include "world.hpp"
 #include "basket.hpp"
 #include "squirrel.hpp"
@@ -27,7 +25,6 @@ private:
     sf::Texture squirrel;
     sf::Sprite squirrelSprite;
     sf::Vector2f squirrelPosition;
-    
     bool onScreen = false;
     
 public:
