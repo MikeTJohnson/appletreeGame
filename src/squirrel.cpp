@@ -28,6 +28,7 @@ Squirrel::Squirrel()
 
     this->squirrel.loadFromFile("../squirrel-new.png");
     
+    //set the squirrels starting position and apply the sprite
     this->squirrelSprite.setTexture(this->squirrel);
     this->squirrelSprite.setPosition(50.f, 625.f);
     
@@ -52,19 +53,23 @@ Squirrel::Squirrel(float posOfSquirrelX, float posOfSquirrelY)
     this->squirrelPosition.y = posOfSquirrelY;
 }
 
+//apply the squirrel object to the screen
 void Squirrel::drawSquirrel(sf::RenderWindow& window){
     window.draw(squirrelSprite);
 }
 
+//get the bounding rectangle for collision detection
 sf::FloatRect Squirrel::getSquirrelGlobalBounds()
 {
     return squirrelSprite.getGlobalBounds();
 }
 
+//set the squirrels movement when called
 void Squirrel::moveSquirrel(){
         squirrelSprite.move(3, 0);
     }
 
+//detect if there was a collision with the squirrel and a thrown apple
 bool Squirrel::squirrelThrownAppleCollision (ThrownApple& appleThrown) {
     if (getSquirrelGlobalBounds().intersects(appleThrown.getBounds())){
         return true;
@@ -74,6 +79,7 @@ bool Squirrel::squirrelThrownAppleCollision (ThrownApple& appleThrown) {
     }
 }
 
+//reset squirrel position when called, specifically when hit by thrown apple
 void Squirrel::resetSquirrelPosition () {
     squirrelSprite.setPosition(50.f, 625.f);
     squirrelSprite.move(0,0);

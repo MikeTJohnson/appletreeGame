@@ -18,6 +18,7 @@ Basket::Basket()
 {
     this->basket.loadFromFile("../basket-new.png");
     
+    //set basket starting position and apply sprite
     this->basketSprite.setTexture(this->basket);
     this->basketSprite.setPosition(150.f, 625.f);
     
@@ -41,6 +42,7 @@ void Basket::move(int winWidth)
         if (basketPosition.x < 0){ //116 = basket width
             basketXVelocity *= -1;
         }
+        //update basket position
         basketPosition.x-=basketXVelocity;
         basketPosition.y = 623.f;
         basketSprite.setPosition(basketPosition);
@@ -52,32 +54,36 @@ void Basket::move(int winWidth)
         if (basketPosition.x > 1150){
             basketXVelocity *= -1;
         }
+        //update basket position
         basketPosition.x+=basketXVelocity;
         basketPosition.y = 623.f;
         basketSprite.setPosition(basketPosition);
     }
 }
 
+//place basket on the screen
 void Basket::drawBasket(sf::RenderWindow& window)
 {
     window.draw(basketSprite);
 }
 
+//get the current position of the basket for other functions
 sf::Vector2f Basket::getBasketPosition()
 {
     return basketPosition;
 }
 
+//get bounding rectangle for collision detection
 sf::FloatRect Basket::getBasketGlobalBounds()
 {
     return basketSprite.getGlobalBounds();
 }
 
+//determine if the squirrel and basket collide
 bool Basket::basketSquirrelCollision(Squirrel& squirrel)
 {
     if(getBasketGlobalBounds().intersects(squirrel.getSquirrelGlobalBounds())){
         return true;
     }
-    
     return false;
 }

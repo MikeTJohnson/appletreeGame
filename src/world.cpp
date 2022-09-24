@@ -79,14 +79,15 @@ void World::loop()
         window.clear(sf::Color::Black);
         window.draw(bgSprite);
         
-        // Start the clock for the squirrel
+        // Start the clocks for squirrel movement start and apple throw delay
         spawnClock++;
         shotClock++;
+        
         // Draw the squirrel on the window
         squirrel.drawSquirrel(window);
         
         if (spawnClock > 100) {
-            // Move the squirrel once the clock exceeds 1000
+            // Move the squirrel once the clock exceeds 100
             squirrel.moveSquirrel();
         }
         
@@ -101,37 +102,30 @@ void World::loop()
         appleFalling.drawFallingApple(window);
         
         
+        //populate variables for calling in other functions
         sf::Vector2f getPos = basket.getBasketPosition();
+        
+        //get thrown apple position and draw the thrown apple
         applethrown.setThrowPosition(getPos);
         applethrown.drawThrownApple(window, shotClock);
         
         
-//        if (squirrel.getSquirrelGlobalBounds().intersects(applethrown.getBounds())) {
-//            applethrown.destroyThrownApple();
-//        }
-        
+        //reset the game if the squirrel collides with the basket
         if(basket.basketSquirrelCollision(squirrel)){
             reset();
         }
         
+        //remove falling apple if it collides with  the basket
         if(appleFalling.fallingAppleBasketCollision(basket)){
             appleFalling.destroyFallingAppleOnCollision();
         }
         
+        //reset the squirrel if it and the thrown apple collide
         if (squirrel.squirrelThrownAppleCollision(applethrown)) {
             squirrel.resetSquirrelPosition();
             spawnClock = 0;
         }
-        
-//        squirrelPos1.drawSquirrel(window);
-//        squirrelPos2.drawSquirrel(window);
-//        squirrelPos3.drawSquirrel(window);
-//        squirrelPos4.drawSquirrel(window);
-//        squirrelPos5.drawSquirrel(window);
-//        squirrelPos6.drawSquirrel(window);
-//        squirrelPos7.drawSquirrel(window);
-//        squirrelPos8.drawSquirrel(window);
-//
+  
         window.display();
     }
 }

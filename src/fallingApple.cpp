@@ -9,10 +9,6 @@
 #include "fallingApple.hpp"
 #include "basket.hpp"
 
-//make the apple fall from the tree
-void FallingApple::makeTheAppleFall (std::vector<sf::Sprite>& fallingApples){
-    fallingApple.move(0, yvelocity);
-}
 
 
 //check that the image for the sprite works and apply it to our object
@@ -28,11 +24,11 @@ void FallingApple::fallingAppleLoaded () {
 
 //assemble all pieces of the falling apple when the whenever the spawn clock reaches 150
 void FallingApple::buildFallingApple () {
-    if (spawnclock > 150) {
-        fallingAppleLoaded();
-        spawnFallingApple(fallingApplePosition);
-        fallingApple.setPosition(fallingApplePosition);
-        fallingApples.push_back(fallingApple);
+    if (spawnclock > 150) { //ensure apples spawn at a sane rate
+        fallingAppleLoaded(); //attach sprite
+        spawnFallingApple(fallingApplePosition); //call the randomizer for a spawn location
+        fallingApple.setPosition(fallingApplePosition); //attach spawn location to the falling apple object
+        fallingApples.push_back(fallingApple); //add to vector
         //reset the spawnclock to 0 so the spawning doesn't happen continuously
         spawnclock = 0;
     }
@@ -45,22 +41,28 @@ void FallingApple::buildFallingApple () {
 
 //draw the assembled falling apple on the screen with it's variables
 void FallingApple::drawFallingApple (sf::RenderWindow& window) {
-    buildFallingApple();
+    buildFallingApple(); //attach sprite, position, and add to the vector
     for (int i = 0; i < fallingApples.size(); i++) {
-        fallingApples[i].move(0, yvelocity);
-        window.draw(fallingApples[i]);
-        destroyFallingApple();
+        fallingApples[i].move(0, yvelocity); //define falling rate
+        window.draw(fallingApples[i]); //draw the apple on the screen
+        destroyFallingApple(); //remove the apple if it is offscreen
     }
 }
 
+
+//remove apple object if they move beyond the screen
 void FallingApple::destroyFallingApple() {
+    //loop through the falling apple objects
     for (int i = 0; i < fallingApples.size(); i++) {
+        //check if they are below the lower bounds of the screen and remove them if they are
         if (fallingApples[i].getPosition().y > 960) {
             fallingApples.erase(fallingApples.begin() + i);
         }
     }
 }
 
+
+//remove apples upon call. specifically when the program detects an intersect of the apple and basket
 void FallingApple::destroyFallingAppleOnCollision() {
     for (int i = 0; i < fallingApples.size(); i++) {
             fallingApples.erase(fallingApples.begin() + i);
@@ -98,16 +100,20 @@ void FallingApple::spawnFallingApple (sf::Vector2f& spawnposition) {
     }
 }
 
+
+//get the bounding rectangle for falling apple objects to help determine collisions
 sf::FloatRect FallingApple::fallingAppleGlobal () {
     for (int i = 0; i < fallingApples.size(); i++)
     return fallingApples[i].getGlobalBounds();
 }
 
+
+//return true if there is an intersect of the apple and basket bounding rectangles
 bool FallingApple::fallingAppleBasketCollision(Basket& basket)
 {
     if(fallingAppleGlobal().intersects(basket.getBasketGlobalBounds())){
         return true;
     }
-    
+    //return false otherwise
     return false;
 }
