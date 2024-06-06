@@ -8,7 +8,7 @@ The objective of the game is to catch falling apples from a tree in a basket, wh
 
 ## Demo
 
-![Demo](./appletreegameshort.gif)
+![Demo](./appleTreeGameDemo.gif)
 
 ### Gameplay:
 - **A** (left) and **D** (right) keys control the movement of the basket.
